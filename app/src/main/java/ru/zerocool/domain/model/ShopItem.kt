@@ -1,4 +1,4 @@
-package ru.zerocool.domain
+package ru.zerocool.domain.model
 
 data class ShopItem(
     val name: String,
