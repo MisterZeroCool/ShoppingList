@@ -2,10 +2,10 @@ package ru.zerocool.presentation.vm
 
 import androidx.lifecycle.ViewModel
 import ru.zerocool.data.repository.ShopListRepositoryImpl
+import ru.zerocool.domain.model.ShopItem
 import ru.zerocool.domain.usecase.DeleteShopItemUseCase
 import ru.zerocool.domain.usecase.EditShopItemUseCase
 import ru.zerocool.domain.usecase.GetShopListUseCase
-import ru.zerocool.domain.model.ShopItem
 
 class MainViewModel : ViewModel() {
 
@@ -17,12 +17,11 @@ class MainViewModel : ViewModel() {
 
     val shopList = getShopListUseCase.getShopList()
 
-
-    fun deleteShopItem(shopItem: ShopItem){
-        deleteShopItemUseCase.shopElemRemove(shopItem)
+    fun deleteShopItem(shopItem: ShopItem) {
+        deleteShopItemUseCase.deleteShopItem(shopItem)
     }
 
-    fun changeEnableState(shopItem: ShopItem){
+    fun changeEnableState(shopItem: ShopItem) {
         val newItem = shopItem.copy(enabled = !shopItem.enabled)
         editShopItemUseCase.editShopItem(newItem)
     }
