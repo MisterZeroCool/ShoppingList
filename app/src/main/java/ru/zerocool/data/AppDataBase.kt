@@ -9,7 +9,7 @@ import ru.zerocool.data.entity.ShopItemDbModel
 @Database(entities = [ShopItemDbModel::class], version = 1, exportSchema = false)
 abstract class AppDataBase : RoomDatabase() {
 
-    private
+    abstract fun shopListDao(): ShopListDao
 
     companion object {
         private var INSTANCE: AppDataBase? = null
